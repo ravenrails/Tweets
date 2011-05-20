@@ -23,7 +23,7 @@ class HomeController < ApplicationController
   end
 
   def add_tweet
-    current_user.tweets = params[:content]
+    current_user.tweets.create :content => params[:content]
     @tweets = eval(params[:tweets])
 
     respond_to do |format|
