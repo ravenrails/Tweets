@@ -16,7 +16,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.tweets
+  adapter: postgresql
+  database: prod_tweets
+  username: exist
+  password: 123qwe
   pool: 5
   timeout: 5000
