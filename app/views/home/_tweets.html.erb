@@ -1,0 +1,7 @@
+
+<% @tweets.each do |tweet| %>
+<div>
+  <%= tweet.user.username %>:  <%= tweet.content %>
+  <span style="font-size: 9px; font-style: italic;"><%= tweet.created_at %></span>
+</div>
+<% end %>

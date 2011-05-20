@@ -1,0 +1,30 @@
+<div id="c_panel" style="float:right;">
+  <%= link_to 'Home', home_my_tweets_path, :remote => true,
+        :onclick => 'setTweets("current_user.tweets")' %> |
+  <%= link_to 'All Tweets', home_all_tweets_path, :remote => true,
+        :onclick => 'setTweets("Tweet.all")' %> |
+  <%= link_to 'Sign out', destroy_user_session_path %>
+</div>
+
+<h4>Hello <%= current_user.username %>!</h4>
+
+<div style="width: 445px;">
+  <%= form_tag home_add_tweet_path, :method => 'POST', :remote => true do %>
+    <%= text_area_tag :content, '', :cols => 60, :rows => 5 %><br />
+    <%= hidden_field_tag :tweets, 'current_user.tweets', :id => 'tweetSetting' %><br />
+    <%= submit_tag 'Tweet', :style => 'float:right;' %>
+  <% end %>
+</div>
+
+<br/>
+
+<div id="tweets">
+  <%= render 'tweets' %>
+</div>
+
+<script>
+  function setTweets(opt)
+  {
+    document.getElementById('tweetSetting').value = opt;
+  }
+</script>
