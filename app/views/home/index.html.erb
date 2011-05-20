@@ -9,7 +9,7 @@
 <h4>Hello <%= current_user.username %>!</h4>
 
 <div style="width: 445px;">
-  <%= form_tag home_add_tweet_path, :method => 'POST', :remote => true do %>
+  <%= form_tag home_add_tweet_path, :method => 'POST', :remote => true, :id => 'tweetForm' do %>
     <%= text_area_tag :content, '', :cols => 60, :rows => 5 %><br />
     <%= hidden_field_tag :tweets, 'current_user.tweets', :id => 'tweetSetting' %><br />
     <%= submit_tag 'Tweet', :style => 'float:right;' %>
